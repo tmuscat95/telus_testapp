@@ -15,16 +15,12 @@ namespace TestApplication.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        //public readonly DataContext _dbContext;
-        //public readonly ILogger<AuthController> _logger;
         public readonly JwtService _jwtService;
         public readonly ILogger<AuthController> _logger;
         public readonly IUserRepository _userRepository;
         private static string errorMessage = "Incorrect Username Or Password";
 
-        public AuthController(ILogger<AuthController> logger, DataContext dbContext, IUserRepository userRepository, JwtService jwtService) {
-            //_dbContext = dbContext;
-            _logger = logger;
+        public AuthController(DataContext dbContext, IUserRepository userRepository, JwtService jwtService) {
             _userRepository = userRepository;
             _jwtService = jwtService;
         }
@@ -59,8 +55,7 @@ namespace TestApplication.Controllers
 
                 return Ok(new {user.Username, user.UserrId });
             }
-            catch (Exception e) {
-
+            catch {
                 return Unauthorized();
             }
 

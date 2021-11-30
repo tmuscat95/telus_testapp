@@ -7,21 +7,21 @@ import "./custom.css";
 
 export default class App extends Component {
   static displayName = App.name;
+  state = {loggedIn: false,loggedInUser:""};
 
   async checkLoggedIn() {
     try {
       const response = await fetch("/api/auth/user");
       if (response.ok) {
         let json = await response.json();
-        this.setState({ error: false, loggedIn: true,loggedInUser:json["username"] });
+        this.setState({ loggedIn: true,loggedInUser:json["username"] });
       }
     } catch (error) {
       console.log(error);
     }
   }
 
-  async componentWillMount() {
-    this.setState({ error: false, loggedIn: false,loggedInUser:"" });
+  async componentDidMount() {
     await this.checkLoggedIn();
   }
 
@@ -39,14 +39,15 @@ export default class App extends Component {
 
       if (!response.ok) {
         console.log("Error: " + response.status);
-        this.setState({ error: true });
+        alert("Login Failed");
+        
         return;
       }
 
       this.setState({error:false ,loggedIn: true, loggedInUser:username });
     } catch (error) {
       console.log(error);
-      this.setState({ error: true });
+      
     }
   };
 
@@ -59,14 +60,12 @@ export default class App extends Component {
           component={() => (
             <Login
               onSubmitHandler={this.onSubmitHandler}
-              error={this.state.error}
               redirect={this.state.loggedIn}
               loggedInUser={this.state.loggedInUser}
             />
           )}
         />
         <Route exact path="/common" component={()=><Common loggedInUser={this.state.loggedInUser}/>} />
-        {/*<Route path='/common/:id' component={CommonTable}/>*/}
       </Layout>
     );
   }

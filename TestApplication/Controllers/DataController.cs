@@ -27,10 +27,9 @@ namespace TestApplication.Controllers
             var token = _jwtService.Verify(jwt);
         }
         
-        public DataController(ILogger<DataController> logger,DataContext dbContext, JwtService jwtService)
+        public DataController(DataContext dbContext, JwtService jwtService)
         {
             _dbContext = dbContext;
-            _logger = logger;
             _jwtService = jwtService;
         }
         
@@ -43,7 +42,7 @@ namespace TestApplication.Controllers
                 var jwt = Request.Cookies["jwt"];
                 var token = _jwtService.Verify(jwt);
             }
-            catch (Exception e)
+            catch
             {
                 return Unauthorized();
             }
@@ -65,7 +64,7 @@ namespace TestApplication.Controllers
                 var jwt = Request.Cookies["jwt"];
                 var token = _jwtService.Verify(jwt);
             }
-            catch (Exception e)
+            catch
             {
                 return Unauthorized();
             }

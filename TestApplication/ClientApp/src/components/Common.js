@@ -57,6 +57,7 @@ export default function Common({ loggedInUser }) {
       <h4>User: {loggedInUser}</h4>
       <Table bordered>
         <thead>
+          <tr>
           <th>Queue Group</th>
           <th>Offered</th>
           <th>Handled</th>
@@ -65,6 +66,7 @@ export default function Common({ loggedInUser }) {
           <th>Handling Time</th>
           <th>Average Handling Time</th>
           <th>Service Level</th>
+          </tr>
         </thead>
         <tbody>
           {monitorData.map((d) => {
@@ -101,47 +103,4 @@ export default function Common({ loggedInUser }) {
       </div>
     </React.Fragment>
   );
-  /*
-    ///Test
-    useEffect(()=>{
-        setLoading(false);
-        setQgroups([
-        {
-          "ID": 1,
-          "Name": "Audi",
-          "SLA_Percent": 80,
-          "SLA_Time": 20
-        },
-        {
-          "ID": 2,
-          "Name": "VW",
-          "SLA_Percent": 90,
-          "SLA_Time": 60
-        },
-        {
-          "ID": 3,
-          "Name": "Ford",
-          "SLA_Percent": 80,
-          "SLA_Time": 20
-        },
-        {
-          "ID": 4,
-          "Name": "Mercedes",
-          "SLA_Percent": 80,
-          "SLA_Time": 20
-        }
-      ])},[])
-      */
-  /////
-  /*
-      
-    return (
-        <div>
-            <ul>
-                {Qgroups.length>0 && Qgroups.map((q)=>{
-                    return  <li id={q["id"]}><Link to={`/common/${q["id"]}`}>{q["name"]}</Link></li>
-                })}
-            </ul>
-        </div>
-    )*/
 }

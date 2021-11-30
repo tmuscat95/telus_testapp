@@ -10,9 +10,9 @@ namespace TestApplication.Data
         {
         }
 
-        public DbSet<Account> accounts { get; set; }
-        public DbSet<QueueGroup> queueGroups { get; set; }
-        public DbSet<MonitorData> monitorData { get; set; }
+        virtual public DbSet<Account> accounts { get; set; }
+        virtual public DbSet<QueueGroup> queueGroups { get; set; }
+        virtual public DbSet<MonitorData> monitorData { get; set; }
         
     }
 }

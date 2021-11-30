@@ -98,13 +98,14 @@ namespace TestApplication
             
         }
 
-        private void _AddTestData<T>(DbContext dbContext,string filename) {
+        private void _AddTestData<T>(DataContext dbContext,string filename) {
             using (StreamReader file = File.OpenText(@"./Data/"+filename))
             {
                 string s = file.ReadToEnd();
                 
                 T[] data = (T[])JsonSerializer.Deserialize(s, typeof(T[]));
-                foreach(T datum in data)
+                
+                foreach (T datum in data)
                 {
                     dbContext.Add(datum);
 
@@ -119,15 +120,6 @@ namespace TestApplication
             _AddTestData<MonitorData>(dbContext, "MonitorData.json");
             _AddTestData<QueueGroup>(dbContext, "QueueGroup.json");
 
-            var accounts = (from account in dbContext.accounts
-            select account).ToList<Account>();
-
-            var monitorData = (from monitorDatum in dbContext.monitorData.Include("QueueGroup")
-                               select monitorDatum).ToList<MonitorData>();
-            //var m = dbContext.monitorData.Include("QueueGroup").ToList();
-          
-            var queueGroup = (from qgItem in dbContext.queueGroups
-                              select qgItem).ToList<QueueGroup>();
         }
     }
 }

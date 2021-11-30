@@ -5,8 +5,6 @@ import { Redirect } from "react-router";
 const Login = ({onSubmitHandler,error,redirect}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  //const [redirect, setRedirect] = useState(false);
-  //const [error, setError] = useState(false);
 
   const onChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -16,11 +14,8 @@ const Login = ({onSubmitHandler,error,redirect}) => {
     setPassword(e.target.value);
   };
 
-  
-
 
   if (redirect) return <Redirect to="/common" />;
-  if (error) alert("Login Failed");
   return (
     <div>
       <Form onSubmit={(e)=>{e.preventDefault(); onSubmitHandler(username,password);}}>
