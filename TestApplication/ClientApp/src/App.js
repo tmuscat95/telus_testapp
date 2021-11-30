@@ -43,7 +43,6 @@ export default class App extends Component {
         return;
       }
 
-      let json = await response.json();
       this.setState({error:false ,loggedIn: true, loggedInUser:username });
     } catch (error) {
       console.log(error);

@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Table, Button } from "reactstrap";
 
 export default function Common({ loggedInUser }) {
@@ -33,7 +32,7 @@ export default function Common({ loggedInUser }) {
       const response = await fetch("api/data");
       try {
         const data = await response.json();
-        if (data["title"] == "Unauthorized") {
+        if (data["title"] === "Unauthorized") {
           window.location.href = "/";
         }
         setMonitorData(data);
