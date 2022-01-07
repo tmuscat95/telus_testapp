@@ -1,0 +1,26 @@
+[
+  {
+    "ID": 1,
+    "Name": "Audi",
+    "SLA_Percent": 80,
+    "SLA_Time": 20
+  },
+  {
+    "ID": 2,
+    "Name": "VW",
+    "SLA_Percent": 90,
+    "SLA_Time": 60
+  },
+  {
+    "ID": 3,
+    "Name": "Ford",
+    "SLA_Percent": 80,
+    "SLA_Time": 20
+  },
+  {
+    "ID": 4,
+    "Name": "Mercedes",
+    "SLA_Percent": 80,
+    "SLA_Time": 20
+  }
+]

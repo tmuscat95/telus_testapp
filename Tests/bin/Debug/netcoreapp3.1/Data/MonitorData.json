@@ -1,0 +1,34 @@
+[
+  {
+    "TalkTime": 10000,
+    "AfterCallWorkTime": 20000,
+    "Handled": 20,
+    "Offered": 40,
+    "HandledWithinSL": 13,
+    "QueueGroupID": 1
+  },
+  {
+    "TalkTime": 20000,
+    "AfterCallWorkTime": 15000,
+    "Handled": 40,
+    "Offered": 50,
+    "HandledWithinSL": 38,
+    "QueueGroupID": 2
+  },
+  {
+    "TalkTime": 15000,
+    "AfterCallWorkTime": 12500,
+    "Handled": 500,
+    "Offered": 521,
+    "HandledWithinSL": 488,
+    "QueueGroupID": 3
+  },
+  {
+    "TalkTime": 16000,
+    "AfterCallWorkTime": 10000,
+    "Handled": 134,
+    "Offered": 136,
+    "HandledWithinSL": 132,
+    "QueueGroupID": 4
+  }
+]
